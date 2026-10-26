@@ -1,0 +1,42 @@
+<html>
+  <head>
+    <title>Order Form</title>
+  </head>
+  <body>
+    <form action="Lat3_4b.php" method="post">
+      <p>Order CD, amount:
+        <input type="text" name="cd_order" id="cd_order" value="0" size="2" maxlength="2">
+      </p>
+      <p>Order DVD, amount:
+        <input type="text" name="dvd_order" id="dvd_order" value="0" size="2" maxlength="2">
+      </p>
+      <input type="submit" value="Add To Cart" name="submit">
+    </form>
+
+    <script>
+      function getCookie(nama) {
+        let data = document.cookie.split("; ");
+
+        for (let i = 0; i < data.length; i++) {
+          let bagian = data[i].split("=");
+          if (bagian[0] === nama) {
+            return bagian[1];
+          }
+        }
+
+        return null;
+      }
+
+      let cd = getCookie("cd_order");
+      let dvd = getCookie("dvd_order");
+
+      if (cd !== null) {
+        document.getElementById("cd_order").value = cd;
+      }
+
+      if (dvd !== null) {
+        document.getElementById("dvd_order").value = dvd;
+      }
+    </script>
+  </body>
+</html>
